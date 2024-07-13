@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <title>Landing Page Responsive Portfolio</title>
+    <style>
+        /* General Styles */
+        .left-align {
+    text-align: left;
+}
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #121212;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden; /* Prevent horizontal scrolling */
+            overflow-y: auto; /* Enable vertical scrolling */
+        }
+        .l-header {
+            background: #1f1f1f;
+            padding: 1rem 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        .nav__menu {
+            display: flex;
+            justify-content: center;
+        }
+        .nav__list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            gap: 1.5rem;
+        }
+        .nav__item {
+            margin: 0;
+        }
+        .nav__link {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+        }
+        .section {
+            padding: 100px 1rem;
+            text-align: center;
+        }
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #ff6347;
+        }
+        .section p {
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+            font-size: 1.2rem;
+            color: #ddd;
+        }
+        .home {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 100px 1rem;
+            flex-wrap: wrap;
+            text-align: center;
+        }
+        .home__information {
+            text-align: left;
+            margin-right: 50px;
+            flex: 1 1 300px;
+        }
+        .home__img {
+            text-align: right;
+            margin-top: 30px;
+            margin-right: -100px;
+            margin-left: 10px;
+            flex: 1 1 300px;
+        }
+        .home__img img {
+            max-width: 100%;
+            border-radius: 50%;
+        }
+        .home__social {
+            display: flex;
+            gap: 1rem;
+            justify-content: left;
+            margin-top: 1rem;
+        }
+        .home__social-icon {
+            font-size: 2rem;
+            color: #fff;
+            cursor: pointer;
+        }
+        .contact__form {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 2rem;
+            background: #f4f4f4;
+            border-radius: 10px;
+            color: #121212;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .form__group {
+            margin-bottom: 1.5rem;
+        }
+        .form__group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        .form__group input, .form__group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        .form__group input:focus, .form__group textarea:focus {
+            outline: none;
+            border-color: #007bff;
+        }
+        .contact__button {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        .contact__button:hover {
+            background: #0056b3;
+        }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            .home {
+                flex-direction: column;
+                text-align: center;
+            }
+            .home__information {
+                margin-right: 0;
+                text-align: center;
+                margin-bottom: 20px;
+            }
+            .home__img {
+                text-align: center;
+                margin-top: 100;
+            }
+            .home__img img {
+                margin: 0 auto;
+            }
+            #experience {
+    text-align: left;
+}
+
+.experience {
+    margin-bottom: 20px; /* Optional: Adjust as needed */
+}
+
+.experience-list {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.experience-list li {
+    margin-bottom: 10px; /* Optional: Adjust as needed */
+}
+
+        }
+        @media (max-width: 480px) {
+            .nav__menu {
+                flex-direction: column;
+                align-items: center;
+            }
+            .nav__list {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+
+        /* Navigation Toggle for Mobile */
+        .nav__menu.show {
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            .nav__menu {
+                display: none;
+            }
+            .nav__menu.show {
+                display: flex;
+                flex-direction: column;
+            }
+            .nav__toggle {
+                display: block;
+                cursor: pointer;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- OVERLAY -->
+    <div class="overlay first"></div>
+    <div class="overlay second"></div>
+    <div class="overlay third"></div>
+
+    <!-- HEADER -->
+    <header class="l-header">
+        <nav class="nav bd-grid">
+            <div>
+                <a href="#" class="nav__logo"></a>
+            </div>
+
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="#" class="nav__link">Home</a></li>
+                    <li class="nav__item"><a href="#about" class="nav__link">About</a></li>
+                    <li class="nav__item"><a href="#experience" class="nav__link">Work Experience</a></li>
+                    <li class="nav__item"><a href="#projects" class="nav__link">Projects</a></li>
+                    <li class="nav__item"><a href="#publications" class="nav__link">Publications</a></li>
+                </ul>
+            </div>
+
+            <div class="nav__toggle" id="nav-toggle">
+                <ion-icon name="menu"></ion-icon>
+            </div>
+        </nav>
+    </header>
+
+    <!-- MAIN -->
+    <main class="l-main bd-grid">
+        <!-- HOME SECTION -->
+        
+        <div id="home" class="home section">
+            <div class="home__information">
+                <div class="home__img">
+                    <img src="assets/img/me.png" alt="Rithika Florian Johnson">
+                </div>
+                <span class="home__pressent"><br><br><br><br><br><br><br><br></span>
+                
+                <h1 class="home__title">Rithika <br> Florian Johnson</h1>
+                <span class="home__skill">MSCS Graduate at <br>University of Massachusetts Amherst</span>
+                <br><br>
+                <div>
+                    <a href="https://drive.google.com/file/d/19RfzTwP-a2DlD_2renk2yKvRYnWiL2W7/view?usp=sharing" class="home__button">DOWNLOAD RESUME</a>
+                </div>
+        
+                <div class="home__social">
+                    <a href="mailto:rithikajohnson@gmail.com">
+                        <ion-icon name="mail" class="home__social-icon"></ion-icon>
+                    </a>
+                    <a href="https://www.linkedin.com/in/rithikafjohnson/" target="_blank" rel="noopener noreferrer">
+                        <ion-icon name="logo-linkedin" class="home__social-icon"></ion-icon>
+                    </a>
+                    <a href="https://github.com/rithikafjohnson" target="_blank" rel="noopener noreferrer">
+                        <ion-icon name="logo-github" class="home__social-icon"></ion-icon>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        
+
+        <!-- ABOUT SECTION -->
+        <div id="about" class="about section">
+            <h2 class="section-title">About Me</h2>
+            <p class="about__text">I am passionate about the dynamic intersection of data science, natural language processing (NLP), and machine learning. With a keen interest in exploring diverse methodologies to tackle complex problems, I thrive on experimenting with data and leveraging innovative approaches to drive insightful solutions.
+
+                My journey in data analysis and NLP has been enriched by hands-on experience in diverse projects, including the semantic profiling of mass shooter narratives and enhancing content categorization systems. These projects not only sharpened my technical skills in Python, PyTorch, and advanced statistical techniques but also deepened my appreciation for the nuanced art of data-driven decision-making.
+                
+                In my professional experience at S&P Global, I honed my abilities in data analytics and process automation, significantly reducing production timelines and enhancing data accessibility. This further solidified my passion for developing robust systems, particularly in database management and migration, using tools like Snowflake and SSMS.
+                
+                I am also actively engaged in academic research, with publications exploring topics such as generating abstract art from hand-drawn sketches using GAN models and predicting COVID-19 cases using survival analysis and LSTM models. These experiences have not only contributed to my academic growth but also fueled my curiosity to explore the frontiers of machine learning applications.
+                
+                Looking ahead, I am eager to continue pushing boundaries in data science, integrating new technologies, and contributing to innovative solutions that make a tangible impact. </div>
+
+
+                <div id="experience" class="section" style="text-align: left;">
+                    <h2 class="section-title" style="text-align: center;">Work Experience</h2>
+                
+                    <div class="experience" style="text-align: left;">
+                        <h3 style="text-align: left;">Data Analyst, S&P Global India <br>Aug 2022 - Jul 2023</h3>
+                       
+                        <ul class="experience-list" style="text-align: left; font-size: 14px; line-height: 1.6; margin-bottom: 10px;">
+                            <li>Analyzed data and resolved issues in crop science and internal projects, implementing automated solutions that reduced data production time by 4 months.</li>
+                            <li>Leveraged Alteryx Designer, Tableau, and Python for daily data analytics tasks, ensuring prompt insights to clients.</li>
+                            <li>Developed Python code for forecasting values in animal produce datasets, previously a manual process, accelerating results by 1 month.</li>
+                        </ul>
+                    </div>
+                
+                    <div class="experience" style="text-align: left;">
+                        <h3 style="text-align: left;">R&A, Data and Technical Design Intern, S&P Global India <br>Mar 2022 – Jul 2022</h3>
+                        <p style="text-align: left; "><strong></strong></p>
+                        <ul class="experience-list" style="text-align: left; font-size: 14px; line-height: 1.6; margin-bottom: 10px;">
+                            <li>Facilitated the smooth migration of data from SSMS to Snowflake by creating views and stored procedures, enhancing data accessibility and performance.</li>
+                            <li>Enhanced team efficiency by at least 40% through the creation of Python tools and process automation with VisualCron, streamlining workflows.</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                
+                
+                
+                
+                <div id="projects" class="services section">
+                    <h2 class="section-title">Projects</h2>
+                    <div class="project-row">
+                        <div class="project" style="display: flex; align-items: center; margin-bottom: 30px;">
+                            <a href="https://github.com/gtanvi58/mass-shooter-classifier" target="_blank" rel="noopener noreferrer">
+                                <img src="assets/css/shooter.png" alt="Semantic Profiling of Mass Shooter Narratives using NLP" style="width:200px; height:auto; margin-right: 20px;">
+                            </a>
+                            <div>
+                                <h3>Semantic Profiling of Mass Shooter Narratives using Natural Language Processing</h3>
+                                <p style="font-size: 14px; line-height: 1.6; margin-bottom: 10px; text-align: left">Our research develops a fine-tuning strategy for large language models (LLMs) to detect violent tendencies in social media comments, crucial for identifying and mitigating potential mass shooting threats. We utilized the Mistral-7B model from Unsloth and BERT, exploring fine-tuning methodologies and an ensemble model approach to enhance performance in recognizing traits like terrorism, supremacism, and suicidal thoughts.</p>
+                                <p style="font-size: 14px; line-height: 1.6; margin-bottom: 10px; text-align: left">Using crossentropy as our loss function and role prompting with Mistral-7B, we improved trait identification. By fine-tuning Mistral-7B on violent tendencies, we created a specialized model capable of detecting subtle cues. Applying zero-shot chain-of-thought prompting on mass shooter manifestos further enhanced the model's ability to draw accurate conclusions from complex information.</p>
+                                <p style="font-size: 14px; line-height: 1.6; margin-bottom: 10px; text-align: left">Conducting a comparative study using PyTorch, we achieved a 20% enhancement in overall model performance and a 10% improvement in accuracy by implementing an ensemble model, surpassing individual multistage fine-tuned models.</p>
+                            </div>
+                        </div>
+                        <div class="project" style="display: flex; align-items: center; margin-bottom: 30px;">
+                            <a href="https://github.com/rithikafjohnson/Enhancing-Content-Categorization-Systems" target="_blank" rel="noopener noreferrer">
+                                <img src="assets/css/news.jpg" alt="Enhancing Content Categorization Systems" style="width:200px; height:auto; margin-right: 20px;">
+                            </a>
+                            <div>
+                                <h3>Enhancing Content Categorization Systems</h3>
+                                <p style="font-size: 14px; line-height: 1.6; margin-bottom: 10px; text-align: left"><strong>Location:</strong> Amherst, USA</p>
+                                <p style="font-size: 14px; line-height: 1.6; margin-bottom: 10px;text-align: left"><strong>Date:</strong> November 2023</p>
+                                <p style="font-size: 14px; line-height: 1.6; margin-bottom: 10px;text-align: left">Engineered a personalized content recommendation system by integrating LaMP architecture with a finely-tuned Flan-T5-base language model.</p>
+                                <p style="font-size: 14px; line-height: 1.6; margin-bottom: 10px;text-align: left">Curated a diverse dataset by combining LaMP News Categorization, AG News, and Book Depository datasets, optimizing for both diversity and computational efficiency.</p>
+                                <p style="font-size: 14px; line-height: 1.6; margin-bottom: 10px;text-align: left">Achieved a noteworthy 8% increase in model accuracy and 0.1 increase in F1 score by integrating a diverse Book Depository dataset, showcasing the model’s adaptability and effectiveness in categorizing content across varied domains.</p>
+                            </div>
+                        </div>
+                        <div class="project" style="display: flex; align-items: center; margin-bottom: 30px;">
+                            <a href="https://github.com/rithikafjohnson/AI-art-generator" target="_blank" rel="noopener noreferrer">
+                                <img src="assets/css/art.jpg" alt="Generating Abstract Art from Hand-Drawn Sketches using GANs" style="width:200px; height:auto; margin-right: 20px;">
+                            </a>
+                            <div>
+                                <h3>Generating Abstract Art from Hand-Drawn Sketches using GANs</h3>
+                                <p style="font-size: 14px; line-height: 1.6; margin-bottom: 10px;text-align: left"><strong>Location:</strong> Bangalore, India</p>
+                                <p style="font-size: 14px; line-height: 1.6; margin-bottom: 10px;text-align: left"><strong>Date:</strong> June 2022</p>
+                                <p style="font-size: 14px; line-height: 1.6; margin-bottom: 10px;text-align: left">Implemented CGAN, Cycle GAN, and Pix2Pix GAN models for transforming hand-drawn sketches into captivating abstract art.</p>
+                                <p style="font-size: 14px; line-height: 1.6; margin-bottom: 10px;text-align: left">Evaluated various image sharpening techniques, including Highboost Filter and Laplacian filter, to enhance model performance.</p>
+                                <p style="font-size: 14px; line-height: 1.6; margin-bottom: 10px;text-align: left">Pioneered creativity by developing a filter applicable in platforms like Instagram, providing a unique avenue for artistic expression.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+               
+                
+                <div id="publications" class="blog section">
+                    <h2 class="section-title">Publications</h2>
+                    <div class="publication-row">
+                        <div class="publication" style="display: flex; align-items: center; margin-bottom: 30px;">
+                            <a href="https://link.springer.com/chapter/10.1007/978-981-99-1435-7_45" target="_blank" rel="noopener noreferrer">
+                                <img src="assets/css/absart.jpg" alt="Generating Abstract Art from Hand-Drawn Sketches using GANs" style="width:200px; height:auto; margin-right: 20px;">
+                            </a>
+                            <div>
+                                <h3>Generating Abstract Art from Hand-Drawn Sketches using GANs</h3>
+                                <p style="font-size: 14px; line-height: 1.6; margin-bottom: 10px;text-align: left"><strong>Publication:</strong> Springer</p>
+                                <p style="font-size: 14px; line-height: 1.6; margin-bottom: 10px;text-align: left"><strong>Date:</strong> June 2023</p>
+                                <p style="font-size: 14px; line-height: 1.6; margin-bottom: 10px;text-align: left"><strong>Authors:</strong> Chakrabarty, S., Johnson, R.F., Rashmi, M., Raha, R.</p>
+                                <p style="font-size: 14px; line-height: 1.6; margin-bottom: 10px;text-align: left">This paper explores the use of Generative Adversarial Networks (GANs) to create abstract art from hand-drawn sketches. The research was part of the Proceedings of International Joint Conference on Advances in Computational Intelligence (IJCACI 2022) and provides insights into the intersection of art and artificial intelligence.</p>
+                                <a href="https://link.springer.com/chapter/10.1007/978-981-99-1435-7_45" target="_blank" rel="noopener noreferrer">Read more</a>
+                            </div>
+                        </div>
+                        <div class="publication" style="display: flex; align-items: center; margin-bottom: 30px;">
+                            <a href="https://ieeexplore.ieee.org/document/9640899" target="_blank" rel="noopener noreferrer">
+                                <img src="assets/css/virus.jpg" alt="Predicting the Number of New Cases of COVID-19 in India" style="width:200px; height:auto; margin-right: 20px;">
+                            </a>
+                            <div>
+                                <h3>Predicting the Number of New Cases of COVID-19 in India</h3>
+                                <p style="font-size: 14px; line-height: 1.6; margin-bottom: 10px;text-align: left"><strong>Publication:</strong> IEEE Xplore</p>
+                                <p style="font-size: 14px; line-height: 1.6; margin-bottom: 10px;text-align: left"><strong>Date:</strong> December 2021</p>
+                                <p style="font-size: 14px; line-height: 1.6; margin-bottom: 10px;text-align: left"><strong>Authors:</strong> A. S., Johnson, R. F., R. k. N., M. T R., and V. V.</p>
+                                <p style="font-size: 14px; line-height: 1.6; margin-bottom: 10px;text-align: left">This study utilizes Survival Analysis and Long Short-Term Memory (LSTM) models to predict the number of new COVID-19 cases in India. Presented at the 2021 Fifth International Conference on I-SMAC (IoT in Social, Mobile, Analytics, and Cloud), it introduces a new metric that significantly enhances the model's accuracy, offering a comprehensive analysis of pandemic trends using advanced computational methods.</p>
+                                <a href="https://ieeexplore.ieee.org/document/9640899" target="_blank" rel="noopener noreferrer">Read more</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+
+        <!-- CONTACT SECTION -->
+        <div id="contact" class="contact section">
+            <!-- Contact form or details can be added here -->
+        </div>
+    </main>
+
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.4/gsap.min.js"></script>
+
+    <!-- MAIN -->
+    <script src="assets/js/main.js"></script>
+
+    <!-- ICONS -->
+    <script type="module" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.esm.js"></script>
+
+    <!-- EMAIL JS -->
+    <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            emailjs.init("Rithika");
+        })();
+    </script>
+</body>
+</html>

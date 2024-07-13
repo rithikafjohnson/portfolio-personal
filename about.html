@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <title>About Me - John Doe</title>
+    <style>
+        /* Page Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background: #121212;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+        .l-header {
+            background: #1f1f1f;
+            padding: 1rem 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .nav__menu {
+            display: flex;
+            justify-content: center;
+        }
+        .nav__list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            gap: 1.5rem;
+        }
+        .nav__item {
+            margin: 0;
+        }
+        .nav__link {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 0.5rem 1rem;
+        }
+        .about {
+            padding: 3rem 1rem;
+            text-align: center;
+        }
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #ff6347;
+        }
+        .about__text {
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+            font-size: 1.2rem;
+            color: #ddd;
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header class="l-header">
+        <nav class="nav bd-grid">
+            <div>
+                <a href="index.html" class="nav__logo">John Doe</a>
+            </div>
+
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="index.html" class="nav__link">Home</a></li>
+                    <li class="nav__item"><a href="about.html" class="nav__link">About</a></li>
+                    <li class="nav__item"><a href="services.html" class="nav__link">Services</a></li>
+                    <li class="nav__item"><a href="blog.html" class="nav__link">Blog</a></li>
+                    <li class="nav__item"><a href="contact.html" class="nav__link">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="nav__toggle" id="nav-toggle">
+                <ion-icon name="menu"></ion-icon>
+            </div>
+        </nav>
+    </header>
+
+    <!-- ABOUT SECTION -->
+    <main class="l-main bd-grid">
+        <div id="about" class="about section">
+            <h2 class="section-title">About Me</h2>
+            <p class="about__text">I am a web developer with a passion for creating dynamic and responsive websites. With a strong foundation in HTML, CSS, and JavaScript, I strive to build web experiences that are not only visually appealing but also highly functional. My goal is to deliver high-quality web solutions that help clients achieve their objectives and enhance their online presence.</p>
+        </div>
+    </main>
+
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.4/gsap.min.js"></script>
+
+    <!-- MAIN -->
+    <script src="assets/js/main.js"></script>
+    
+    <!-- ICONS -->
+    <script type="module" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.esm.js"></script>
+</body>
+</html>
